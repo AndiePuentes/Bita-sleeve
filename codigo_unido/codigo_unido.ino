@@ -29,7 +29,6 @@ const int motorPin = 9;//decimos donde tenemos conectado el vibración
 
 
 void setup() {
-
   Serial.begin(9600); //velocidad a la que se visualiza la info en el monitor
   pinMode(4, INPUT);//DHT11
   pinMode(motorPin, OUTPUT); //decimos que el motor es de salida
@@ -72,9 +71,9 @@ void setup() {
       archivo.close();
       Serial.println("escritura correcta");
     }
-
   }
 }
+
 
 void loop() {
   for (int i = 0; i <= 12; i++) {
@@ -82,7 +81,6 @@ void loop() {
   } //Declarar que el neopixel circular se encienda siempre en blanco a no ser que llegue al 4o nivel de alguno de los sensores
 
   //Temperatura
-
 #include "tvisualization.h"
 
   //Uv
