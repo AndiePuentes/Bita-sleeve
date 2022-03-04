@@ -1,15 +1,15 @@
-//configuración del sensor miniSD
+//Configuración del sensor miniSD
 #include <SPI.h>
 #include <SD.h>
 #define SSpin 10 //establecemos a que pin esta conectado el CS, puede ser cualquiera
 File archivo; //creas un objeto tipo File y lo llamas archivo
 
-//configuración del sensor dht11
+//Configuración del sensor dht11
 #include "dht.h"
 dht DHT;
 #define DHT11_PIN 4
 
-//configuración del neopixel alargado
+//Configuración del neopixel alargado
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
 #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
@@ -18,12 +18,12 @@ dht DHT;
 #define NUMPIXELS 9
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
-//configuración del neopixel circular
+//Configuración del neopixel circular
 #define PINS        5
 #define NUM_LEDS 12
 Adafruit_NeoPixel strip(NUM_LEDS, PINS, NEO_GRB + NEO_KHZ800);
 
-//configuración motor vibración
+//Configuración motor vibración
 const int motorPin = 9;//decimos donde tenemos conectado el vibración
 #define DELAYVAL 200 // Time (in milliseconds) to pause between pixels
 
@@ -79,7 +79,7 @@ void setup() {
 void loop() {
   for (int i = 0; i <= 12; i++) {
     strip.setPixelColor(i, strip.Color(255, 255, 255));
-  } //declarar que el neopixel circular se encienda siempre en blanco a no ser que llegue al 4o nivel de alguno de los sensores
+  } //Declarar que el neopixel circular se encienda siempre en blanco a no ser que llegue al 4o nivel de alguno de los sensores
 
   //Temperatura
 
@@ -88,7 +88,7 @@ void loop() {
   //Uv
 #include "uvvisualization.h"
 
-  // Humedad
+  //Humedad
 #include "hvisualization.h"
 }
 }
