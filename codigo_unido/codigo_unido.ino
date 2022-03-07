@@ -27,7 +27,9 @@ Adafruit_NeoPixel strip(NUM_LEDS, PINS, NEO_GRB + NEO_KHZ800);
 const int motorPin = 9;//decimos donde tenemos conectado el vibración
 #define DELAYVAL 200 // Time (in milliseconds) to pause between pixels
 
-boolean alarma = 0;
+boolean alarmaTemperatura = 0;
+boolean alarmaHumedad = 0;
+boolean alarmaUV = 0;
 
 void setup() {
 
@@ -68,16 +70,16 @@ void setup() {
       archivo.println(HUMEDAD);
       archivo.print("INDICEUV : ");
       archivo.println(INDICEUV);
-      if (alarma = 1) {
-        archivo.println("USUARIO EXPUESTO A MEDIO NOCIVO");
+      if (alarmaHumedad == 0 && alarmaTemperatura == 0 && alarmaUV == 0) {
+        archivo.println("MEDIO INOCUO");
+      } else {
+        archivo.println("INDIVIDUO EXPUESTO A MEDIO NOCIVO");
       }
-      if (alarma = 0) {
-        archivo.println("CLIMA INOCUO");
-        archivo.println("-------------------------------------------------------------");
-        delay(5000);
-        archivo.close();
-        Serial.println("escritura correcta");
-      }
+      archivo.println("-------------------------------------------------------------");
+      delay(5000);
+      archivo.close();
+      Serial.println("escritura correcta");
+
 
     }
   }
