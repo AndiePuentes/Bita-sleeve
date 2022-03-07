@@ -1,15 +1,15 @@
-//Configuración del sensor miniSD
+//configuración del sensor miniSD
 #include <SPI.h>
 #include <SD.h>
 #define SSpin 10 //establecemos a que pin esta conectado el CS, puede ser cualquiera
 File archivo; //creas un objeto tipo File y lo llamas archivo
 
-//Configuración del sensor dht11
+//configuración del sensor dht11
 #include "dht.h"
 dht DHT;
 #define DHT11_PIN 4
 
-//Configuración del neopixel alargado
+//configuración del neopixel alargado
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
 #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
@@ -18,17 +18,19 @@ dht DHT;
 #define NUMPIXELS 9
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
-//Configuración del neopixel circular
+//configuración del neopixel circular
 #define PINS        5
 #define NUM_LEDS 12
 Adafruit_NeoPixel strip(NUM_LEDS, PINS, NEO_GRB + NEO_KHZ800);
 
-//Configuración motor vibración
+//configuración motor vibración
 const int motorPin = 9;//decimos donde tenemos conectado el vibración
 #define DELAYVAL 200 // Time (in milliseconds) to pause between pixels
 
+boolean alarma = 0;
 
 void setup() {
+
   Serial.begin(9600); //velocidad a la que se visualiza la info en el monitor
   pinMode(4, INPUT);//DHT11
   pinMode(motorPin, OUTPUT); //decimos que el motor es de salida
@@ -54,7 +56,7 @@ void setup() {
   Serial.println("inicializacion correcta");
   archivo = SD.open("prueba.txt", FILE_WRITE);
   if (archivo) {
-    for (int i = 1; i < 30; i++) {
+    for (int i = 1; i < 2160; i++) {
       int TEMPERATURA = DHT.temperature;
       int HUMEDAD = DHT.humidity;
       int INDICEUV = nivelUv;
@@ -66,27 +68,33 @@ void setup() {
       archivo.println(HUMEDAD);
       archivo.print("INDICEUV : ");
       archivo.println(INDICEUV);
-      archivo.println("-------------------------------------------------------------");
-      delay(1000);
-      archivo.close();
-      Serial.println("escritura correcta");
+      if (alarma = 1) {
+        archivo.println("USUARIO EXPUESTO A MEDIO NOCIVO");
+      }
+      if (alarma = 0) {
+        archivo.println("CLIMA INOCUO");
+        archivo.println("-------------------------------------------------------------");
+        delay(5000);
+        archivo.close();
+        Serial.println("escritura correcta");
+      }
+
     }
   }
 }
-
-
 void loop() {
   for (int i = 0; i <= 12; i++) {
     strip.setPixelColor(i, strip.Color(255, 255, 255));
-  } //Declarar que el neopixel circular se encienda siempre en blanco a no ser que llegue al 4o nivel de alguno de los sensores
+  } //declarar que el neopixel circular se encienda siempre en blanco a no ser que llegue al 4o nivel de alguno de los sensores
 
   //Temperatura
+
 #include "tvisualization.h"
 
   //Uv
 #include "uvvisualization.h"
 
-  //Humedad
+  // Humedad
 #include "hvisualization.h"
 }
 }
