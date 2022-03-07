@@ -8,26 +8,26 @@ float nivelUv = voltage / .1;
 //int nivelUv = 30; //para provar el codigo de emergencia quitando las // y comentando la de arriba
 
 if (nivelUv <= 2) {
-  alarma = 0;
+  alarmaUV = 0;
   pixels.setPixelColor(3, pixels.Color(150, 0, 200));
   strip.show();
   pixels.show();
 
 } if (nivelUv > 2  && nivelUv <= 5) {
-  alarma = 0;
+  alarmaUV = 0;
   pixels.setPixelColor(3, pixels.Color(150, 0, 200));
   pixels.setPixelColor(4, pixels.Color(150, 0, 200));
   strip.show();
   pixels.show();
 } if (nivelUv > 5 && nivelUv <= 7) {
-  alarma = 0;
+  alarmaUV = 0;
   pixels.setPixelColor(3, pixels.Color(150, 0, 200));
   pixels.setPixelColor(4, pixels.Color(150, 0, 200));
   pixels.setPixelColor(5, pixels.Color(150, 0, 200));
   strip.show();
   pixels.show();
 } if (nivelUv > 7) {
-  alarma = 1;
+  alarmaUV = 1;
   pixels.setPixelColor(3, pixels.Color(250, 0, 0));
   pixels.setPixelColor(4, pixels.Color(250, 0, 0));
   pixels.setPixelColor(5, pixels.Color(250, 0, 0));
