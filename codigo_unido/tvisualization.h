@@ -7,21 +7,21 @@ delay(2000);
 int t = DHT.temperature;
 //int t = 80; //para provar el codigo de emergencia quitando las // y comentando la de arriba
 if (t >= -3 && t <= 27) {
-  alarma = 0;
+  alarmaTemperatura = 0;
   pixels.setPixelColor(0, pixels.Color(0, 150, 0));
   strip.show();
   pixels.show();
 
 }
 if (t > 27 && t <= 40) {
-  alarma = 0;
+  alarmaTemperatura = 0;
   pixels.setPixelColor(0, pixels.Color(0, 150, 0));
   pixels.setPixelColor(1, pixels.Color(0, 150, 0));
   strip.show();
   pixels.show();
 }
 if (t > 40 && t <= 55) {
-  alarma = 0;
+  alarmaTemperatura = 0;
   pixels.setPixelColor(0, pixels.Color(0, 150, 0));
   pixels.setPixelColor(1, pixels.Color(0, 150, 0));
   pixels.setPixelColor(2, pixels.Color(0, 150, 0));
@@ -29,7 +29,7 @@ if (t > 40 && t <= 55) {
   pixels.show();
 }
 if (t > 55) {
-  alarma = 1;
+  alarmaTemperatura = 1;
   pixels.setPixelColor(0, pixels.Color(255, 0, 0));
   pixels.setPixelColor(1, pixels.Color(255, 0, 0));
   pixels.setPixelColor(2, pixels.Color(255, 0, 0));
