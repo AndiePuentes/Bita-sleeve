@@ -1,4 +1,4 @@
-# Byte-sleeve l *Kit de supervivencia: control del clima y la identidad*
+# ByteSleeve l *Kit de supervivencia: control del clima y la identidad*
 *#wearable #identidad #survivalkit #climatechange #interaction*
 
 ## Proyecto basado en un futuro distópico datado en 2100
