@@ -3,7 +3,7 @@ int h = DHT.humidity;
 Serial.print("Humidity = "); //nos imprima el indice UV
 Serial.println(h);
 if (10 <= h && h < 40) {
-  alarma = 0;
+  alarmaHumedad = 0;
   pixels.setPixelColor(6, pixels.Color(0, 0, 255));
   digitalWrite(motorPin, LOW);
   strip.show();
@@ -12,7 +12,7 @@ if (10 <= h && h < 40) {
 
 }
 else if (40 <= h && h < 50) {
-  alarma = 0;
+  alarmaHumedad = 0;
   pixels.setPixelColor(6, pixels.Color(0, 0, 255));
   pixels.setPixelColor(7, pixels.Color(0, 0, 255));
   digitalWrite(motorPin, LOW);
@@ -21,7 +21,7 @@ else if (40 <= h && h < 50) {
 
 }
 else if (50 <= h && h < 60) {
-  alarma = 0;
+  alarmaHumedad = 0;
   pixels.setPixelColor(6, pixels.Color(0, 0, 255));
   pixels.setPixelColor(7, pixels.Color(0, 0, 255));
   pixels.setPixelColor(8, pixels.Color(0, 0, 255));
@@ -30,7 +30,7 @@ else if (50 <= h && h < 60) {
   pixels.show();
 }
 else if (60 <= h) {
-  alarma = 1;
+  alarmaHumedad = 1;
   pixels.setPixelColor(6, pixels.Color(250, 0, 0));
   pixels.setPixelColor(7, pixels.Color(250, 0, 0));
   pixels.setPixelColor(8, pixels.Color(250, 0, 0));
@@ -52,4 +52,3 @@ else if (60 <= h) {
   strip.show();
   pixels.show();
   delay(500);
-  
