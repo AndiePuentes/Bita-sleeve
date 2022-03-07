@@ -1,4 +1,3 @@
-
 int radiacion = analogRead(A5); //el sensor esta conectado al pin analógico 0, leemos el valor.
 float voltage = radiacion * (5.0 / 1023.0); //convertimos el valor leido a voltage (de 0 a 1023 a de 0 a 5v)
 
@@ -9,23 +8,26 @@ float nivelUv = voltage / .1;
 //int nivelUv = 30; //para provar el codigo de emergencia quitando las // y comentando la de arriba
 
 if (nivelUv <= 2) {
-
+  alarma = 0;
   pixels.setPixelColor(3, pixels.Color(150, 0, 200));
   strip.show();
   pixels.show();
 
 } if (nivelUv > 2  && nivelUv <= 5) {
+  alarma = 0;
   pixels.setPixelColor(3, pixels.Color(150, 0, 200));
   pixels.setPixelColor(4, pixels.Color(150, 0, 200));
   strip.show();
   pixels.show();
 } if (nivelUv > 5 && nivelUv <= 7) {
+  alarma = 0;
   pixels.setPixelColor(3, pixels.Color(150, 0, 200));
   pixels.setPixelColor(4, pixels.Color(150, 0, 200));
   pixels.setPixelColor(5, pixels.Color(150, 0, 200));
   strip.show();
   pixels.show();
 } if (nivelUv > 7) {
+  alarma = 1;
   pixels.setPixelColor(3, pixels.Color(250, 0, 0));
   pixels.setPixelColor(4, pixels.Color(250, 0, 0));
   pixels.setPixelColor(5, pixels.Color(250, 0, 0));
@@ -49,5 +51,4 @@ if (nivelUv <= 2) {
   delay(500);
   pixels.show();   // Send the updated pixel colors to the hardware.
   strip.show();
-  //delay(DELAYVAL); // Pause before next pass through loop
 }
