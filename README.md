@@ -28,3 +28,6 @@ l **Qué componentes utilizamos?**
 * Comunicador NFC
 * Neopixel circular 12 WS2812 5050 RGB
 * Motor vibrador DC3V 80mA
+
+
+Integrantes: Fabiola Choucair, Marta Pou de Avilés, Andie Puentes, Samanta Román
